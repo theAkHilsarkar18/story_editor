@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:stories_editor/stories_editor.dart';
 
 class Homescreen extends StatefulWidget {
@@ -18,12 +19,14 @@ class _HomescreenState extends State<Homescreen> {
           title: Text("Story Editor",style: TextStyle(letterSpacing: 2)),
         ),
         body: Container(
-          height: double.infinity,
+          height: 550,
           width: double.infinity,
-          // child: StoriesEditor(
-          //   giphyKey: 'C4dMA7Q19nqEGdpfj82T8ssbOeZIylD4',
-          //  
-          // ),
+          child: StoriesEditor(
+            giphyKey: 'C4dMA7Q19nqEGdpfj82T8ssbOeZIylD4',
+            onDone: (uri) {
+              Share.shareFiles([uri]);
+            },
+          ),
         ) ,
       ),
     );
